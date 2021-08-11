@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import React from 'react';
+import Search from './components/Search';
+
+import 'semantic-ui-css/semantic.min.css'
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import Result from './components/Result';
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="tc  ma0 pa4 min-vh-100">
+
+
+
+        <Switch>
+          <Route path="/details/:id" >
+            <Result />
+          </Route>
+
+          <Route path="/">
+            <Search />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
-export default App;
+
+
